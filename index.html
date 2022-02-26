@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos com Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        .div-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        button {
+            border-radius: 4px;
+            margin: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-1">
+        <h1>Adição e Subtração</h1>
+        <div class="flex">
+            <button onclick="subtrai()">-</button>
+            <h2 class="num">0</h2>
+            <button onclick="adiciona()">+</button>
+        </div>
+        <h1>Meu nome é: <strong class="titulo"></strong></h1>
+        <input class="inp" type="text" placeholder="Escreva seu nome" onkeyup="atualiza()">
+    </div>
+
+    <script>
+        var numero = 0;
+
+        function adiciona(e) {
+            //cancela envio ao servidor
+            event.preventDefault(e)
+            //adiciona um
+            numero++
+            //atribui o novo valor da váriavel numero ao elemento cuja classe é .num 
+            document.querySelector('.num').textContent = numero;
+        }
+
+
+        function subtrai(e) {
+            //cancela envio ao servidor
+            event.preventDefault(e)
+            //se o numero atual for maior ou igual a um, então posso subtrair
+            if (numero >= 1) {
+                //subtrai um
+                numero--
+                //atribui o novo valor da váriavel numero ao elemento cuja classe é .num 
+                document.querySelector('.num').textContent = numero;
+            }
+        }
+
+        function atualiza(e) {
+            //cancela envio ao servidor
+            event.preventDefault(e)
+            //atribui o valor do input cuja classe é .inp no título cuja classe é .titulo
+            document.querySelector('.titulo').textContent = document.querySelector('.inp').value
+        }
+
+    </script>
+</body>
+
+</html>
